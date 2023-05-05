@@ -1,3 +1,3 @@
 # Recipes project with...
 ## Backend:  Node + Express + MySQL + Sequelize
-## Frontend: React + Bootstrap + Axios
+## Frontend: React + Bootstrap
