@@ -20,6 +20,12 @@ const CustomNavbar = () => {
                     <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
                         Home
                     </Nav.Link>
+                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
+                        Recipes
+                    </Nav.Link>
+                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
+                        Add Recipe
+                    </Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             </Container>
