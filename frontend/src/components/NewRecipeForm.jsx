@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Col, Button } from "react-bootstrap";
 
+import { Col, Button } from "react-bootstrap";
 
 export const NewRecipeForm = () => {
     const [recipeTitle, setRecipeTitle] = useState("")
     const [recipeDescription, setRecipeDescription] = useState("")
 
-    const HandleSubmitForm = () => {
+    const handleSubmitForm = () => {
         fetch('http://localhost:8080/api/recipes', {
             method: 'POST',
             headers: {
@@ -21,7 +21,7 @@ export const NewRecipeForm = () => {
     }
 
     return (
-        <form className="form col-sm-12 col-md-6 col-lg-4" onSubmit={HandleSubmitForm}>
+        <form className="form col-sm-12 col-md-6 col-lg-4" onSubmit={handleSubmitForm}>
             <Col>
                 <label htmlFor="title">
                     Title

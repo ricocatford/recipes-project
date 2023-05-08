@@ -9,9 +9,6 @@ module.exports = app => {
     // Retrieve all Recipes
     router.get("/", recipes.findAll);
 
-    // Retrieve all published Recipes
-    router.get("/published", recipes.findAllPublished);
-
     // Retrieve single Recipe by id
     router.get("/:id", recipes.findOne);
 
@@ -20,9 +17,6 @@ module.exports = app => {
 
     // Delete a Recipe by id
     router.delete("/:id", recipes.delete);
-
-    // Delete all Recipes
-    router.delete("/", recipes.deleteAll);
 
     app.use('/api/recipes', router);
 }
