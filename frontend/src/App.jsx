@@ -8,22 +8,12 @@ import getRecipes from "./requests/getRecipes";
 import "./assets/css/style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const App = () => {
-  const [recipes, setRecipes] = useState([]);
 
-  useEffect(() => {
-    async function requestGetRecipes() {
-      const recipes = await getRecipes();
-      setRecipes(recipes);
-    }
-    requestGetRecipes();
-  }, []);
-  
+const App = () => {
   return (
     <>
       <Navbar />
       <Outlet />
-      {recipes.map((recipe) => (<p key={recipe.id}>{recipe.title}</p>))}
     </>
   );
 }

@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect } from "react";
 
 import getRecipes from "../requests/getRecipes";
+import { Recipe } from "components/Recipe";
+import { Container, Row } from "react-bootstrap";
 
 const Home = () => {
     const [recipes, setRecipes] = useState([]);
@@ -31,16 +32,11 @@ const Home = () => {
             .then(response => console.log(response.status));
     }
 
-
-
     return (
-    <>
-        {recipes.map((recipe) => (
-            <div key={recipe.id}>
-                <p>{recipe.title}</p>
-                <p>{recipe.description}</p>
-            </div>
-        ))}
+    <Container>
+        <Row className="p-3">
+            <Recipe recipes={recipes} />
+        </Row>
         <form onSubmit={Test}>
             <label htmlFor="title">
                 Title
@@ -55,7 +51,7 @@ const Home = () => {
                 Submit
             </button>
         </form>
-    </>
+    </Container>
     );
 };
 

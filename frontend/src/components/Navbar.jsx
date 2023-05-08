@@ -18,13 +18,13 @@ const CustomNavbar = () => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(!expanded)} />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ms-auto">
-                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
+                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)}>
                         Home
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
+                    <Nav.Link as={Link} to="/recipes" onClick={() => setExpanded(false)}>
                         Recipes
                     </Nav.Link>
-                    <Nav.Link as={Link} to="/" onClick={() => setExpanded(false)} className="link text-uppercase" >
+                    <Nav.Link as={Link} to="/add-recipe" onClick={() => setExpanded(false)}>
                         Add Recipe
                     </Nav.Link>
                 </Nav>
