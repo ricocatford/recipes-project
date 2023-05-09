@@ -2,7 +2,7 @@ import { Container, Row } from "react-bootstrap";
 
 import { NewRecipeForm } from "../components/NewRecipeForm";
 
-const AddRecipes = () => {
+const NewRecipe = () => {
     return (
         <Container className="container--custom mt-2">
             <Row>
@@ -12,4 +12,4 @@ const AddRecipes = () => {
     );
 };
 
-export default AddRecipes;
+export default NewRecipe;

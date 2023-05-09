@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-
 import { formatDate } from "./FormatDate";
 
 export const Recipe = ({ recipe }) => {
@@ -15,10 +14,12 @@ export const Recipe = ({ recipe }) => {
 
     return (
         <>
-            <i className="fa-solid fa-trash-can" onClick={() => deleteRecipe()} />
-            <a as={Link}>
-                <i className="fa-solid fa-pencil"/>
-            </a>
+            <div className="d-flex justify-content-between">
+                <i className="fa-solid fa-trash-can icon--custom" onClick={() => deleteRecipe()} />
+                <Link>
+                    <i className="fa-solid fa-pencil icon--custom" />
+                </Link>
+            </div>
             <h2>
                 {recipe.title}
             </h2>

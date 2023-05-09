@@ -1,4 +1,5 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 import { Col } from "react-bootstrap";
 import { Recipe } from "./Recipe";
@@ -11,6 +12,7 @@ export const RecipeList = ({ recipes }) => {
                     <Recipe recipe={recipe}/>
                 </Col>
             ))}
+            <Outlet />
         </>
     );
 };

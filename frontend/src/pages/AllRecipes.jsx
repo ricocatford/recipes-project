@@ -5,7 +5,7 @@ import { Container, Row } from "react-bootstrap";
 import getRecipes from "../requests/getRecipes";
 import { RecipeList } from "components/RecipeList";
 
-const Recipes = () => {
+const AllRecipes = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
@@ -25,4 +25,4 @@ const Recipes = () => {
     );
 };
 
-export default Recipes;
+export default AllRecipes;
