@@ -1,18 +1,35 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 
-import { Col } from "react-bootstrap";
-import { Recipe } from "./Recipe";
+import { Container, Col, Row } from "react-bootstrap";
 
-export const RecipeList = ({ recipes }) => {
+import RecipeCard from "./RecipeCard";
+import getRecipes from "../requests/getRecipes";
+import { Link } from "react-router-dom";
+
+const RecipeList = () => {
+    const [recipes, setRecipes] = useState([]);
+
+    useEffect(() => {
+    async function requestGetRecipes() {
+        const recipes = await getRecipes();
+        setRecipes(recipes);
+    }
+    requestGetRecipes();
+    }, []);
+
     return (
-        <>
-            {recipes.map(recipe => (
-                <Col sm={12} md={4} key={recipe.id} className="recipe__wrapper offset-md-1 my-2 p-3">
-                    <Recipe recipe={recipe}/>
-                </Col>
-            ))}
-            <Outlet />
-        </>
+        <Container className="container--custom mt-2">
+            <Row>
+                {recipes.map(recipe => (
+                    <Col sm={12} md={4} key={recipe.id} className="recipe__wrapper offset-md-1 my-2 p-3">
+                        <Link to={`./${recipe.id}`}>
+                            <RecipeCard recipe={recipe} />
+                        </Link>
+                    </Col>
+                ))}
+            </Row>
+        </Container>
     );
 };
+
+export default RecipeList;

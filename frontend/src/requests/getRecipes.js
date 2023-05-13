@@ -1,7 +1,7 @@
-const API_URL = "http://localhost:8080"
+import config from "src/config";
 
 export default async function getRecipes() {
-    const response = await fetch(`${API_URL}/api/recipes`, {
+    const response = await fetch(`${config.API_URL}/api/recipes`, {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

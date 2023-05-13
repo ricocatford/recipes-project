@@ -12,7 +12,7 @@ const CustomNavbar = () => {
             <Container>
             <Navbar.Brand as={Link} to="/">
                 <h2>
-                    Recipes App
+                    Hot Recipes
                 </h2>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(!expanded)} />
@@ -23,9 +23,6 @@ const CustomNavbar = () => {
                     </Nav.Link>
                     <Nav.Link as={Link} to="recipes" onClick={() => setExpanded(false)}>
                         Recipes
-                    </Nav.Link>
-                    <Nav.Link as={Link} to="recipes/new" onClick={() => setExpanded(false)}>
-                        Add Recipe
                     </Nav.Link>
                 </Nav>
             </Navbar.Collapse>

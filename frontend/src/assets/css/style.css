@@ -4,6 +4,21 @@
     padding: 0;
 }
 
+.navbar--side {
+    width: 200px;
+    min-height: calc(100vh - 72.39px);
+    background: rgb(230, 230, 230);
+}
+
+.nav-item--custom {
+    padding: .25rem 0;
+}
+
+.nav-item__link {
+    text-decoration: none;
+    color:rgb(30, 30, 30)
+}
+
 .container--custom {
     min-height: calc(100vh - 80px);
 }
