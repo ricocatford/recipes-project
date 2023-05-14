@@ -16,11 +16,10 @@ const DisplayRecipe = () => {
             if (recipe.status === 200) {
                 setRecipe(recipe.payload);
             }
-            console.log(recipe.payload)
         }
         requestGetRecipe();
     }, []);
-    
+
     return (
         <Container className="container--custom mt-2">
             <h1>
