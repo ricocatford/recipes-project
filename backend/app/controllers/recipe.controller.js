@@ -11,11 +11,11 @@ exports.create = (req, res) => {
         });
         return;
     }
-
     // Create a Recipe
     const recipe = {
         title: req.body.title,
         description: req.body.description,
+        ingredients: req.body.ingredients.join(";"),
     }
 
     // Save Recipe in the db
@@ -33,12 +33,23 @@ exports.create = (req, res) => {
 
 // Retrieve all Recipes
 exports.findAll = (req, res) => {
-    const title = req.query.title;
-    var condition = title ? { title: { [Op.like]: `%${title}%` } } : null;
+    const search = req.query.search;
+    let condition = search ? 
+        { 
+            [Op.or]: [
+                {title: {[Op.like]: `%${search}%`}},
+                {description: {[Op.like]: `%${search}%`}},
+            ] 
+        } 
+        : null;
 
     Recipe.findAll( { where: condition } )
-        .then(data => {
-            res.send(data);
+        .then(recipes => {
+            recipes = recipes.map(recipe => {
+                recipe.dataValues.ingredients = recipe.dataValues.ingredients.split(";");
+                return recipe;
+            })
+            res.send(recipes);
         })
         .catch(err => {
             res.status(500).send({
@@ -53,9 +64,10 @@ exports.findOne = (req, res) => {
     const id = req.params.id;
 
     Recipe.findByPk(id)
-        .then(data => {
-            if (data) {
-                res.send(data);
+        .then(recipe => {
+            if (recipe) {
+                recipe.dataValues.ingredients = recipe.dataValues.ingredients.split(";");
+                res.send(recipe);
             } else {
                 res.status(404).send({
                     message: `Cannot find Recipe with id=${id}.`

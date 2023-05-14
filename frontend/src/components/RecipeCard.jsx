@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { formatDate } from "./FormatDate";
 
 const RecipeCard = ({ recipe }) => {
@@ -17,9 +18,11 @@ const RecipeCard = ({ recipe }) => {
             <div className="d-flex justify-content-between">
                 <i className="fa-solid fa-trash-can icon--custom" onClick={() => deleteRecipe()} />
             </div>
-            <h2>
-                {recipe.title}
-            </h2>
+            <Link to={`${recipe.id}`}>
+                <h2>
+                    {recipe.title}
+                </h2>
+            </Link>
             <p className="text-muted">
                 Created at: {formatDate(recipe.createdAt)}
             </p>

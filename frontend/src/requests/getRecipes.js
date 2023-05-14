@@ -8,5 +8,9 @@ export default async function getRecipes() {
         },
     });
     const payload = await response.json();
-    return payload;
+    
+    return {
+        status: response.status,
+        payload: payload
+    };
 }

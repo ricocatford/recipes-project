@@ -32,3 +32,20 @@
 .icon--custom {
     cursor: pointer;
 }
+
+.tag__container {
+    flex-wrap: wrap;
+}
+
+.tag__wrapper {
+    background: rgb(255, 196, 0);
+    width: fit-content;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+}
+
+.tag__btn {
+    border-radius: 50%;
+    border: none;
+    padding: .25rem .625rem;
+}

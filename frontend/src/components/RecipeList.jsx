@@ -4,7 +4,6 @@ import { Container, Col, Row } from "react-bootstrap";
 
 import RecipeCard from "./RecipeCard";
 import getRecipes from "../requests/getRecipes";
-import { Link } from "react-router-dom";
 
 const RecipeList = () => {
     const [recipes, setRecipes] = useState([]);
@@ -12,7 +11,7 @@ const RecipeList = () => {
     useEffect(() => {
     async function requestGetRecipes() {
         const recipes = await getRecipes();
-        setRecipes(recipes);
+        setRecipes(recipes.payload);
     }
     requestGetRecipes();
     }, []);
@@ -22,9 +21,7 @@ const RecipeList = () => {
             <Row>
                 {recipes.map(recipe => (
                     <Col sm={12} md={4} key={recipe.id} className="recipe__wrapper offset-md-1 my-2 p-3">
-                        <Link to={`./${recipe.id}`}>
-                            <RecipeCard recipe={recipe} />
-                        </Link>
+                        <RecipeCard recipe={recipe}/>
                     </Col>
                 ))}
             </Row>

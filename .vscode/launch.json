@@ -21,6 +21,8 @@
             "runtimeExecutable": "yarn",
             "runtimeArgs": [
                 "dev",
+                "--port",
+                "3000"
             ],
         },
         {
