@@ -36,7 +36,8 @@ export const NewRecipeForm = () => {
             },
             body: JSON.stringify({
                 "title": recipeTitle,
-                "description": recipeDescription
+                "description": recipeDescription,
+                "ingredients": recipeIngredients
             })
         })
             .then(response => console.log(response.status));
@@ -64,12 +65,12 @@ export const NewRecipeForm = () => {
                     <input className="form-control" type="text" value={ingredientsInputField} name="ingredients" onChange={handleOnChange} onKeyDown={handleOnKeyDown}/>
                 </Col>
                 <Col className="d-flex flex-wrap">
-                    {recipeIngredients.map((recipeIngredient, i) => (
-                        <div className="tag__wrapper d-flex me-2 my-1" key={i}>
+                    {recipeIngredients.map((recipeIngredient, index) => (
+                        <div className="tag__wrapper d-flex me-2 my-1" key={crypto.randomUUID()}>
                             <p className="my-auto">
                                 {recipeIngredient}
                             </p>
-                            <button className="tag__btn ms-2" onClick={() => deleteIngredientTag(i)}>
+                            <button type="button" className="tag__btn ms-2" onClick={() => deleteIngredientTag(index)}>
                                 <i className="fa-solid fa-times" />
                             </button>
                         </div>

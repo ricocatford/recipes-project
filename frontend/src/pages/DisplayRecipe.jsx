@@ -16,11 +16,11 @@ const DisplayRecipe = () => {
             if (recipe.status === 200) {
                 setRecipe(recipe.payload);
             }
-            console.log(recipe.payload.title)
+            console.log(recipe.payload)
         }
         requestGetRecipe();
     }, []);
-
+    
     return (
         <Container className="container--custom mt-2">
             <h1>
@@ -29,6 +29,13 @@ const DisplayRecipe = () => {
             <p>
                 {recipe.description}
             </p>
+            <ul>
+                {recipe.ingredients?.map(recipeIngredient => (
+                    <li>
+                        {recipeIngredient}
+                    </li>
+                ))}
+            </ul>
         </Container>
     );
 };
