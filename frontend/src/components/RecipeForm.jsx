@@ -10,9 +10,7 @@ export default function RecipeForm({
     recipeDescriptionData = "",
     recipeIngredientsData = [],
 }) {
-    console.log(`RECIPE TITLE DATA: ${recipeTitleData}`);
     const [recipeTitle, setRecipeTitle] = useState(recipeTitleData);
-    console.log(`RECIPE TITLE STATE: ${recipeTitle}`);
     const [recipeDescription, setRecipeDescription] = useState(
         recipeDescriptionData
     );
@@ -111,7 +109,7 @@ export default function RecipeForm({
                         type="text"
                         value={recipeTitle}
                         name="title"
-                        onChange={(e) => setRecipeTitle(e.target.value)}
+                        onChange={(event) => setRecipeTitle(event.target.value)}
                     />
                 </Col>
                 <Col>
@@ -122,7 +120,9 @@ export default function RecipeForm({
                         type="text"
                         value={recipeDescription}
                         name="description"
-                        onChange={(e) => setRecipeDescription(e.target.value)}
+                        onChange={(event) =>
+                            setRecipeDescription(event.target.value)
+                        }
                     />
                 </Col>
                 <Col>

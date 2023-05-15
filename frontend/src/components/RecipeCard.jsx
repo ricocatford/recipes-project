@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { formatDate } from "./FormatDate";
+
+import { formatDate } from "src/functions/formatDate";
 
 const RecipeCard = ({ recipe }) => {
     const deleteRecipe = () => {

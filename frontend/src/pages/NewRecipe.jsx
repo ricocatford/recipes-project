@@ -1,6 +1,6 @@
 import { Container, Row } from "react-bootstrap";
 
-import RecipeForm from "../components/RecipeForm";
+import RecipeForm from "src/components/RecipeForm";
 
 const NewRecipe = () => {
     return (
