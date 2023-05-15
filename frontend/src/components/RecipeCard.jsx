@@ -14,22 +14,22 @@ const RecipeCard = ({ recipe }) => {
 
     return (
         <>
-            <div className="d-flex justify-content-between">
-                <i
-                    className="fa-solid fa-trash-can cursor-pointer"
-                    onClick={() => deleteRecipe()}
-                />
-                <Link to={`${recipe.id}/edit`}>
-                    <i className="fa-solid fa-pencil cursor-pointer" />
-                </Link>
-            </div>
-            <Link to={`${recipe.id}`}>
+            <Link to={`/recipes/${recipe.id}`}>
                 <h2>{recipe.title}</h2>
             </Link>
             <p className="text-muted">
                 Created at: {formatDate(recipe.createdAt)}
             </p>
             <p>{recipe.description}</p>
+            <div className="d-flex justify-content-end align-items-center">
+                <i
+                    className="fa-solid fa-trash-can cursor-pointer"
+                    onClick={() => deleteRecipe()}
+                />
+                <Link to={`/recipes/${recipe.id}/edit`}>
+                    <i className="fa-solid fa-pencil cursor-pointer ms-2" />
+                </Link>
+            </div>
         </>
     );
 };
