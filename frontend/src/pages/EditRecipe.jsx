@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import { Container, Row } from "react-bootstrap";
+
 import RecipeForm from "src/components/RecipeForm";
 import getRecipe from "src/requests/getRecipe";
 
@@ -19,16 +21,19 @@ const EditRecipe = () => {
     }, []);
 
     return (
-        <>
-            {recipe && (
-                <RecipeForm
-                    recipeFormMode="EDIT"
-                    recipeTitleData={recipe.title}
-                    recipeDescriptionData={recipe.description}
-                    recipeIngredientsData={recipe.ingredients}
-                />
-            )}
-        </>
+        <Container className="container--custom mt-2">
+            <Row>
+                {recipe && (
+                    <RecipeForm
+                        recipeFormMode="EDIT"
+                        recipeTitleData={recipe.title}
+                        recipeDescriptionData={recipe.description}
+                        recipeIngredientsData={recipe.ingredients}
+                        recipeId={recipe.id}
+                    />
+                )}
+            </Row>
+        </Container>
     );
 };
 

@@ -1,9 +1,11 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Col, Button } from "react-bootstrap";
 
 export default function RecipeForm({
     recipeFormMode,
+    recipeId = null,
     recipeTitleData = "",
     recipeDescriptionData = "",
     recipeIngredientsData = [],
@@ -18,6 +20,7 @@ export default function RecipeForm({
         recipeIngredientsData
     );
     const newIngredientInputElement = useRef();
+    const navigate = useNavigate();
     const handleOnKeyDownNewIngredientInput = (event) => {
         const { key } = event;
         const trimmedInput = event.target.value.trim();
@@ -58,8 +61,23 @@ export default function RecipeForm({
             return;
         }
 
-        fetch("http://localhost:8080/api/recipes", {
-            method: "POST",
+        const baseUrl = "http://localhost:8080/api/recipes/";
+        let fetchedUrl = "";
+        let method = "";
+
+        switch (recipeFormMode) {
+            case "NEW":
+                fetchedUrl = baseUrl;
+                method = "POST";
+                break;
+            case "EDIT":
+                fetchedUrl = baseUrl + recipeId;
+                method = "PUT";
+                break;
+        }
+
+        fetch(fetchedUrl, {
+            method: method,
             headers: {
                 "Content-Type": "application/json",
             },
@@ -68,15 +86,20 @@ export default function RecipeForm({
                 description: recipeDescription,
                 ingredients: recipeIngredients,
             }),
+        }).then((response) => {
+            if (recipeFormMode === "EDIT") {
+                navigate(`/recipes/${recipeId}`);
+            }
         });
-
-        event.currentTarget.submit();
+        if (recipeFormMode !== "EDIT") {
+            event.currentTarget.submit();
+        }
     };
 
     return (
         <>
             <form
-                className="form form--recipe col-sm-12 col-md-6 col-lg-4"
+                className="form form--recipe col-sm-12 col-md-6 col-lg-4 mx-auto"
                 onSubmit={handleSubmitForm}
             >
                 <Col>

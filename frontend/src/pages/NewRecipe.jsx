@@ -6,7 +6,7 @@ const NewRecipe = () => {
     return (
         <Container className="container--custom mt-2">
             <Row>
-                <RecipeForm recipeFormMode="NEW"/>
+                <RecipeForm recipeFormMode="NEW" />
             </Row>
         </Container>
     );
