@@ -18,13 +18,14 @@ const RecipeList = () => {
 
     return (
         <Container className="container--custom mt-2">
-            <Row>
+            <Row className="gx-4">
                 {recipes.map((recipe) => (
                     <Col
                         sm={12}
-                        md={4}
+                        md={6}
+                        lg={4}
                         key={recipe.id}
-                        className="recipe__wrapper offset-md-1 my-2 p-3"
+                        className="recipe__wrapper my-2 p-3"
                     >
                         <RecipeCard recipe={recipe} />
                     </Col>

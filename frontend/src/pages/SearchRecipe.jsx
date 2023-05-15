@@ -42,11 +42,11 @@ const SearchRecipe = () => {
                     found matching your search criteria.
                 </h4>
             </Row>
-            <Row className="mx-auto">
+            <Row>
                 {recipes.map((recipe) => (
                     <Col
                         sm={12}
-                        md={4}
+                        md={3}
                         key={recipe.id}
                         className="recipe__wrapper offset-md-1 my-2 p-3"
                     >
