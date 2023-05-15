@@ -29,12 +29,8 @@
     box-shadow: 0 .5em 1em rgba(0, 0, 0, 0.1);
 }
 
-.icon--custom {
+.cursor-pointer {
     cursor: pointer;
-}
-
-.tag__container {
-    flex-wrap: wrap;
 }
 
 .tag__wrapper {

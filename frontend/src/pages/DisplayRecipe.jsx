@@ -7,7 +7,6 @@ import getRecipe from "src/requests/getRecipe";
 
 const DisplayRecipe = () => {
     const { recipeId } = useParams();
-
     const [recipe, setRecipe] = useState({});
 
     useEffect(() => {
@@ -22,17 +21,11 @@ const DisplayRecipe = () => {
 
     return (
         <Container className="container--custom mt-2">
-            <h1>
-                {recipe.title}
-            </h1>
-            <p>
-                {recipe.description}
-            </p>
+            <h1>{recipe.title}</h1>
+            <p>{recipe.description}</p>
             <ul>
-                {recipe.ingredients?.map(recipeIngredient => (
-                    <li>
-                        {recipeIngredient}
-                    </li>
+                {recipe.ingredients?.map((recipeIngredient) => (
+                    <li key={crypto.randomUUID()}>{recipeIngredient}</li>
                 ))}
             </ul>
         </Container>

@@ -1,12 +1,12 @@
 import { Container, Row } from "react-bootstrap";
 
-import { NewRecipeForm } from "../components/NewRecipeForm";
+import RecipeForm from "../components/RecipeForm";
 
 const NewRecipe = () => {
     return (
         <Container className="container--custom mt-2">
             <Row>
-                <NewRecipeForm />
+                <RecipeForm recipeFormMode="NEW"/>
             </Row>
         </Container>
     );
