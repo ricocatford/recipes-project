@@ -33,6 +33,16 @@
     cursor: pointer;
 }
 
+.link--custom {
+    color: rgb(0, 125, 150);
+    text-decoration: none;
+}
+
+.link--custom:hover,
+.link--custom:focus {
+    color: rgb(0, 177, 213);
+}
+
 .tag__wrapper {
     background: rgb(255, 196, 0);
     width: fit-content;

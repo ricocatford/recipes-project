@@ -44,12 +44,7 @@ const SearchRecipe = () => {
             </Row>
             <Row>
                 {recipes.map((recipe) => (
-                    <Col
-                        sm={12}
-                        md={3}
-                        key={recipe.id}
-                        className="recipe__wrapper offset-md-1 my-2 p-3"
-                    >
+                    <Col sm={12} md={6} lg={4} key={recipe.id}>
                         <RecipeCard recipe={recipe} />
                     </Col>
                 ))}

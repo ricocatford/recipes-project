@@ -13,24 +13,26 @@ const RecipeCard = ({ recipe }) => {
     };
 
     return (
-        <>
-            <Link to={`/recipes/${recipe.id}`}>
-                <h2>{recipe.title}</h2>
-            </Link>
-            <p className="text-muted">
-                Created at: {formatDate(recipe.createdAt)}
-            </p>
-            <p>{recipe.description}</p>
-            <div className="d-flex justify-content-end align-items-center">
+        <div className="shadow rounded border-1 h-100 p-3 d-flex flex-column justify-content-between">
+            <div className="">
+                <Link to={`/recipes/${recipe.id}`} className="link--custom">
+                    <h2>{recipe.title}</h2>
+                </Link>
+                <p className="text-muted">
+                    Created on: {formatDate(recipe.createdAt)}
+                </p>
+                <p>{recipe.description}</p>
+            </div>
+            <div className="d-flex justify-content-end align-items-center mb-0">
                 <i
-                    className="fa-solid fa-trash-can cursor-pointer"
+                    className="fa-solid fa-trash-can cursor-pointer fs-3 link--custom"
                     onClick={() => deleteRecipe()}
                 />
                 <Link to={`/recipes/${recipe.id}/edit`}>
-                    <i className="fa-solid fa-pencil cursor-pointer ms-2" />
+                    <i className="fa-solid fa-pencil cursor-pointer ms-3 fs-3 link--custom" />
                 </Link>
             </div>
-        </>
+        </div>
     );
 };
 
