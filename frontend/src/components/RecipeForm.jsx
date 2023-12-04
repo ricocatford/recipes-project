@@ -90,7 +90,7 @@ export default function RecipeForm({
             }
         });
         if (recipeFormMode !== "EDIT") {
-            event.currentTarget.submit();
+            window.location.reload();
         }
     };
 
